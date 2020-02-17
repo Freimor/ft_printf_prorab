@@ -6,7 +6,7 @@
 /*   By: sskinner <sskinner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 21:27:54 by sskinner          #+#    #+#             */
-/*   Updated: 2020/02/17 22:10:45 by sskinner         ###   ########.fr       */
+/*   Updated: 2020/02/18 00:40:29 by sskinner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	*makestr(char *restr, char add)
 	char	temp[ft_strlen(restr) + 1];
 	int		i;
 
+	i = 0;
 	while (restr[i] != '\0')
 	{
 		temp[i] = restr[i];
@@ -50,7 +51,7 @@ char	*makestr(char *restr, char add)
 	}
 	temp[i] = '\0';
 	free(restr);
-	newstr = (char *)malloc(sizeof(char) * (i + 1));
+	newstr = (char *)malloc(sizeof(char) * (i + 2));
 	i = 0;
 	while (temp[i] != '\0')
 	{
@@ -115,11 +116,17 @@ void	main(void)
 {
 	char *str;
 	long double fl;
+	u_ld rest;
 
 	fl = 3.5;
+	rest.d = fl;
 	str = (char *)malloc(sizeof(char) * 1);
-	bits_to_str(8, &fl, str);
-	print_bits(8, &fl, 0);
-	printf("\n");
+	makestr(str, 'k');
+	//makestr(str, 'k');
 	printf("%s\n", str);
+	//bits_to_str(8, &fl, str);
+	print_bits(10, &fl, 1);
+	printf("\n");
+	//printf("\n");
+	//printf("%s\n", str);
 }
